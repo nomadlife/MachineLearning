@@ -1,0 +1,39 @@
+Octave 사용법
+
+doc  : 전체 메뉴얼
+help --list  : 모든 연산자, 키워드, ㅎ마수
+help [함수명] : 함수 설명
+
+lookfor [키워드]: 함수이름 모를때, 특정키워드가 설명에 들어간 함수를 검색
+Octave --traditional : 출력형식등을 매트랩과 유사하게.
+quit : 종료
+exit : 종료
+
+# 주석
+% 주석
+#{ block comment, open
+#} block comment, close
+
+문장종결 세미콜론
+없을때, 결과값 출력
+있을때, 화면 출력 없음.
+
+화면출력
+disp()
+printf()
+
+그래프 출력 느릴때(win 10-32bit)
+available_graphics_toolkit()
+graphics_toolkit('fltk') % qt에서 fltk로 바꿈.
+
+plot(t,y1)
+hold on
+xlabel('time')
+ylabel('value')
+legend('sin','cos')
+title('myplot')
+imagesc()
+
+y1=sin(2*pi*4*t)
+
+
