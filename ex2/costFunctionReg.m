@@ -18,7 +18,32 @@ grad = zeros(size(theta));
 %               derivatives of the cost w.r.t. each parameter in theta
 
 
+z=zeros(rows(X));
+h=0;
+w=0;
+r=0;
+t=0;
 
+for i=1:m
+	z(i)=X(i,:)*theta;
+	h=1./(1+e.^-z(i));
+
+	J=J+((-y(i))*log(h)-(1-y(i))*log(1-h))/m;
+
+	w=w+(h-y(i))*X(i,1)/m;
+	r=r+(h-y(i))*X(i,2)/m;
+	t=t+(h-y(i))*X(i,3)/m;
+end
+
+for j=1:size(theta,1)
+	J=J+(theta(j)^2)*lambda/(2*m)
+	
+	
+end
+
+
+J
+grad=[w,r,t]
 
 
 
