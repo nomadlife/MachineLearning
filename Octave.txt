@@ -36,4 +36,7 @@ imagesc()
 
 y1=sin(2*pi*4*t)
 
+파일관리
+copyfile('원본','대상')
+
 
