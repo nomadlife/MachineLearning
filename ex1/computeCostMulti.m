@@ -14,6 +14,12 @@ J = 0;
 %               You should set J to the cost.
 
 
+%Experts's Solution
+%hypothesis
+h = X*theta;
+
+%cost 
+J = sum((h - y).^2)/(2*m); 
 
 
 

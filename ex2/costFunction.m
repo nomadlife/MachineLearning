@@ -20,28 +20,33 @@ grad = zeros(size(theta));
 % Note: grad should have the same dimensions as theta
 %
 
-z=zeros(rows(X));
-h=0;
-w=0;
-r=0;
-t=0;
+%1st solutoin
+%z=zeros(rows(X));
+%h=0;
+%w=0;
+%r=0;
+%t=0;
 
-for i=1:m
-z(i)=X(i,:)*theta;
-h=1./(1+e.^-z(i));
+%for i=1:m
+%z(i)=X(i,:)*theta;
+%h=1./(1+e.^-z(i));
 
-J=J+((-y(i))*log(h)-(1-y(i))*log(1-h))/m;
+%J=J+((-y(i))*log(h)-(1-y(i))*log(1-h))/m;
 
-w=w+(h-y(i))*X(i,1)/m;
-r=r+(h-y(i))*X(i,2)/m;
-t=t+(h-y(i))*X(i,3)/m;
-end
+%w=w+(h-y(i))*X(i,1)/m;
+%r=r+(h-y(i))*X(i,2)/m;
+%t=t+(h-y(i))*X(i,3)/m;
+%end
 
-J
-grad=[w,r,t]
-
+%grad=[w,r,t]
 
 
+%2nd solution
+h=sigmoid(X*theta);
+
+J=sum(-y.*log(h)-(1-y).*log(1-h))/m
+
+grad=X'*(h-y)/m
 
 
 % =============================================================

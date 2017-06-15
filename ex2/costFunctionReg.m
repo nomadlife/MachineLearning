@@ -18,47 +18,46 @@ grad = zeros(size(theta));
 %               derivatives of the cost w.r.t. each parameter in theta
 
 
-z=zeros(rows(X));
-h=0;
-%w=0;
-%r=0;
-%t=0;
+%1st Solution
+%z=zeros(rows(X));
+%h=0;
 
-for i=1:m
-	z(i)=X(i,:)*theta;
-	h=1./(1+e.^-z(i));
+%for i=1:m
+%	z(i)=X(i,:)*theta;
+%	h=1./(1+e.^-z(i));
 
-	J=J+((-y(i))*log(h)-(1-y(i))*log(1-h))/m;
+%	J=J+((-y(i))*log(h)-(1-y(i))*log(1-h))/m;
 
-	%w=w+(h-y(i))*X(i,1)/m;
-	%r=r+(h-y(i))*X(i,2)/m;
-	%t=t+(h-y(i))*X(i,3)/m;
+%end
+
+%for j=1:size(theta,1)
+%	if (j>=2)
+%	J=J+(theta(j)^2)*lambda/(2*m);
+%	end	
+%end
+
+%for j=1:size(theta,1)
+
+%	for i=1:m
+%		z(i)=X(i,:)*theta;
+%		h=1./(1+e.^-z(i));
+%		grad(j)=grad(j)+(h-y(i))*X(i,j)/m;
+%	end
 	
-end
-
-for j=1:size(theta,1)
-	if (j>=2)
-	J=J+(theta(j)^2)*lambda/(2*m);
-	end	
-end
-
-for j=1:size(theta,1)
-
-	for i=1:m
-		z(i)=X(i,:)*theta;
-		h=1./(1+e.^-z(i));
-		grad(j)=grad(j)+(h-y(i))*X(i,j)/m;
-	end
+%	if (j>=2)
+%		grad(j)=grad(j)+theta(j)*lambda/m;
+%	end
 	
-	if (j>=2)
-		grad(j)=grad(j)+theta(j)*lambda/m;
-	end
-	
-end
+%end
 
 
-%J
-%grad=[w,r,t]
+
+%2nd Solution
+h=sigmoid(X*theta);
+
+J=sum(-y.*log(h)-(1-y).*log(1-h))/m
+
+grad=X'*(h-y)/m
 
 
 % =============================================================

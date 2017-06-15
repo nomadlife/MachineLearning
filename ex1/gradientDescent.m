@@ -17,12 +17,26 @@ for iter = 1:num_iters
     %       of the cost function (computeCost) and gradient here.
     %
 
-d1=0;d2=0;
-for i=1:m
-d1=d1+(X(i,:)*theta-y(i))*alpha/m;
-d2=d2+(X(i,:)*theta-y(i))*X(i,2)*alpha/m;
-end
-theta=[theta(1)-d1;theta(2)-d2];
+%1st solution
+%d1=0;d2=0;
+%for i=1:m
+%d1=d1+(X(i,:)*theta-y(i))*alpha/m;
+%d2=d2+(X(i,:)*theta-y(i))*X(i,2)*alpha/m;
+%end
+%theta=[theta(1)-d1;theta(2)-d2];
+
+%2nd solution.
+%theta=theta-transpose(sum((X*theta-y).*[ones(size(X),1),X(:,2)]))*alpha/m;
+
+%3rd solution.
+%theta=theta-[ones(1,size(X));X'(2,:)]*(X*theta-y)*alpha/m;
+
+%4th solution.
+theta-=[ones(1,size(X));X'(2,:)]*(X*theta-y)*alpha/m;
+
+
+%5th solution(?), from sompne's github, not proved
+%theta-=X'*(X*theta-y)*alpha/m;
 
 
     % ============================================================
