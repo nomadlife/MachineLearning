@@ -1,4 +1,17 @@
-Octave 사용법
+Octave 사용법(version 4.2.1)
+
+환경설정파일(windwos): octaverc
+(C:\Octave\Octave-4.2.1\share\octave\4.2.1\m\startup)
+
+환경설정내용
+echo on
+PS1('>> ')
+graphics_toolkit('fltk')
+cd 'C:\Users\joonw\Documents\Machine Learning'
+edit mode sync
+edit home .
+EDITOR('"C:\Program Files\Vim\vim80\vim.exe"')
+
 
 doc  : 전체 메뉴얼
 help --list  : 모든 연산자, 키워드, ㅎ마수
