@@ -51,13 +51,11 @@ grad = zeros(size(theta));
 %end
 
 
-
 %2nd Solution
 h=sigmoid(X*theta);
+J=sum(-y.*log(h)-(1-y).*log(1-h))/m + sum(theta(2:end).^2)*lambda/(2*m)
+grad=X'*(h-y)/m + [0;theta(2:end)]*lambda/m
 
-J=sum(-y.*log(h)-(1-y).*log(1-h))/m
-
-grad=X'*(h-y)/m
 
 
 % =============================================================
