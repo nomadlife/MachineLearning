@@ -31,6 +31,7 @@ X = [ones(m, 1) X];
 %       
 
 %g=zeros(m,num_labels);
+
 g=sigmoid(X*(all_theta'));
 p=(g==max(g,[],2))*([1:num_labels]');
 
