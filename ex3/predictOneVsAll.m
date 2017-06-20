@@ -30,8 +30,9 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
-
-
+%g=zeros(m,num_labels);
+g=sigmoid(X*(all_theta'));
+p=(g==max(g,[],2))*([1:num_labels]');
 
 
 
