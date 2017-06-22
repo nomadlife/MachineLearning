@@ -72,15 +72,13 @@ a2 = sigmoid(a1*Theta2');
 for k=1:num_labels
 J = J+sum(-(y==k).*log(a2(:,k))-(1-(y==k)).*log(1-a2(:,k)))/m;
 J = J+sum(Theta2(k,2:end).^2)*lambda/(2*m);
-Theta2_grad(k,:) = a1'*(a2(:,k)-(y==k))/m + [0;Theta2(k,2:end)]*lambda/m;
+Theta2_grad(k,:) = 1/m*(a2(:,k)-(y==k))'*a1 + [0,Theta2(k,2:end)]*lambda/m;
 end
 
 
 for h=1:hidden_layer_size
 J = J+sum(Theta1(h,2:end).^2)*lambda/(2*m);
-for k=1:num_labels
-Theta1_grad(h,:) = X'*(a1(:,h)-a2(:,k))/m + [0;Theta1(h,2:end)]*lambda/m;
-end
+Theta1_grad(h,:) = 1/m*(a1(:,h)-(y==k))'*X + [0,Theta1(h,2:end)]*lambda/m;
 end
 
 
