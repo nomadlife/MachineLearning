@@ -63,10 +63,14 @@ Theta2_grad = zeros(size(Theta2));
 %
 
 %Cost function
-a1 = sigmoid([ones(m,1) X]*Theta1');
-a2 = sigmoid([ones(size(a1,1),1) a1]*Theta2');
+a1 = X;
+z2 = [ones(m,1) a1]*Theta1';
+a2 = sigmoid(z2);
+z3 = [ones(m,1) a2]*Theta2';
+a3 = sigmoid(z3);
+
 for k=1:num_labels
-J += sum(-(y==k).*log(a2(:,k))-(1-(y==k)).*log(1-a2(:,k)))/m;
+J += sum(-(y==k).*log(a3(:,k))-(1-(y==k)).*log(1-a3(:,k)))/m;
 end
 
 %Regularized term for Cost function
@@ -76,6 +80,13 @@ J += sum(sumsq(Theta1(:,2:end)))*lambda/(2*m);
 
 %Gradient
 
+for k=1:num_labels
+delta3(:,k)=a3(:,k)-(y==k);
+end
+delta2=delta3*Theta2(:,2:end).*sigmoidGradient(z2);
+
+Theta2_grad = [zeros(num_labels,1) (delta3')*a2];
+Theta1_grad = [zeros(hidden_layer_size,1) (delta2')*a1];
 
 
 
