@@ -64,7 +64,6 @@ Theta2_grad = zeros(size(Theta2));
 
 
 %Cost function
-
 a1 = [ones(m,1) X];
 z2 = a1*Theta1';
 a2 = [ones(m,1) sigmoid(z2)];
