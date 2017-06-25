@@ -81,17 +81,17 @@ J += sum(sumsq(Theta1(:,2:end)))*lambda/(2*m);
 
 
 %Gradient
-
 for k=1:num_labels
 delta3(:,k)=a3(:,k)-(y==k);
 end
 delta2=delta3*Theta2(:,2:end).*sigmoidGradient(z2);
 
-
 Theta2_grad = [(delta3')*a2/m];
 Theta1_grad = [(delta2')*a1/m];
 
-
+%Regularized term for Gradient
+Theta2_grad(:,2:end) += [Theta2(:,2:end)*lambda/m];
+Theta1_grad(:,2:end) += [Theta1(:,2:end)*lambda/m];
 
 
 
