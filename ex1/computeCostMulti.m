@@ -14,7 +14,7 @@ J = 0;
 %               You should set J to the cost.
 
 
-%Experts's Solution
+%Other's Solution
 %hypothesis
 h = X*theta;
 

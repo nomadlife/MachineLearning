@@ -32,11 +32,10 @@ for iter = 1:num_iters
 %theta=theta-[ones(1,size(X));X'(2,:)]*(X*theta-y)*alpha/m;
 
 %4th solution.
-theta-=[ones(1,size(X));X'(2,:)]*(X*theta-y)*alpha/m;
+%theta-=[ones(1,size(X));X'(2,:)]*(X*theta-y)*alpha/m;
 
-
-%5th solution(?), from sompne's github, not proved
-%theta-=X'*(X*theta-y)*alpha/m;
+%5th solution
+theta-=X'*(X*theta-y)*alpha/m;
 
 
     % ============================================================

@@ -18,7 +18,7 @@ J = 0;
 %J=J+((X(i,:)*theta-y(i))^2)/(2*m);
 %end
 
-%Others' solution
+%Other's solution
 h = X*theta;
 J = sum((h - y).^2)/(2*m); 
 
