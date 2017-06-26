@@ -3,7 +3,7 @@
 %     validationCurve.m
 
 %% Initialization
-clear ; close all; clc
+clear ; close all;
 
 %% =========== Part 1: Loading and Visualizing Data =============
 %  We start the exercise by first loading and visualizing the dataset. 
@@ -23,8 +23,8 @@ m = size(X, 1);
 
 % Plot training data
 %plot(X, y, 'rx', 'MarkerSize', 10, 'LineWidth', 1.5);
-xlabel('Change in water level (x)');
-ylabel('Water flowing out of the dam (y)');
+%xlabel('Change in water level (x)');
+%ylabel('Water flowing out of the dam (y)');
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
@@ -44,3 +44,17 @@ fprintf('Program paused. Press enter to continue.\n');
 pause;
 
 
+%% =========== Part 3: Regularized Linear Regression Gradient =============
+%  You should now implement the gradient for regularized linear 
+%  regression.
+%
+
+theta = [1 ; 1];
+[J, grad] = linearRegCostFunction([ones(m, 1) X], y, theta, 1);
+
+fprintf(['Gradient at theta = [1 ; 1]:  [%f; %f] '...
+         '\n(this value should be about [-15.303016; 598.250744])\n'], ...
+         grad(1), grad(2));
+
+fprintf('Program paused. Press enter to continue.\n');
+pause;
