@@ -1,9 +1,8 @@
 Octave 사용법(version 4.2.1)
 
-환경설정파일(windwos): octaverc
+환경설정(windwos): octaverc
 (C:\Octave\Octave-4.2.1\share\octave\4.2.1\m\startup)
-
-환경설정내용
+설정내용
 echo off
 PS1('>> ')
 graphics_toolkit('fltk')
@@ -12,6 +11,19 @@ edit mode sync
 edit home .
 EDITOR('"C:\Program Files\Vim\vim80\vim.exe"')
 more off
+
+환경설정(linux,ubuntu16.04): /home/.octaverc(새파일작성)
+echo off
+PS1('>> ')
+graphics_toolkit('fltk')
+cd '/home/jw/Documents/Machine Learning'
+edit mode sync
+edit home .
+#EDITOR('"vim > /dev/tty 2>&1 < /dev/tty %s"')
+EDITOR('vi')
+more off
+
+
 
 doc  : 전체 메뉴얼
 help --list  : 모든 연산자, 키워드, ㅎ마수
