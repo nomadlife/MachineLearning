@@ -61,19 +61,24 @@ for i=1:m
 X_train = X(1:i,:);
 y_train = y(1:i,:);
 
-theta = rand(size(X,2) ,1);
-fprintf('size of theta=(%dx%d)\n',size(theta,1),size(theta,2));
-theta
+%theta = rand(size(X,2) ,1);
+%fprintf('size of theta=(%dx%d)\n',size(theta,1),size(theta,2));
+%theta
 
 %X_train
 %y_train
 %lambda
 
-[theta] = trainLinearReg(X_train, y_train, lambda);
-theta
+theta = trainLinearReg(X_train, y_train, 0);
+%theta
 
-error_train(i) = linearRegCostFunction(X_train, y_train, theta, lambda); 
-error_val(i) = linearRegCostFunction(Xval, yval, theta, lambda); 
+h_train = X_train*theta;
+h = Xval*theta;
+error_train(i) = sum((h_train - y_train).^2)/(2*m);
+error_val(i) = sum((h - yval).^2)/(2*m);
+
+%error_train(i) = linearRegCostFunction(X_train, y_train, theta, lambda); 
+%error_val(i) = linearRegCostFunction(Xval, yval, theta, lambda); 
 end
 
 
