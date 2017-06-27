@@ -54,7 +54,27 @@ error_val   = zeros(m, 1);
 % ---------------------- Sample Solution ----------------------
 
 
+lambda = 0;
 
+for i=1:m
+
+X_train = X(1:i,:);
+y_train = y(1:i,:);
+
+theta = rand(size(X,2) ,1);
+fprintf('size of theta=(%dx%d)\n',size(theta,1),size(theta,2));
+theta
+
+%X_train
+%y_train
+%lambda
+
+[theta] = trainLinearReg(X_train, y_train, lambda);
+theta
+
+error_train(i) = linearRegCostFunction(X_train, y_train, theta, lambda); 
+error_val(i) = linearRegCostFunction(Xval, yval, theta, lambda); 
+end
 
 
 
