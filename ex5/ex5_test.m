@@ -70,13 +70,10 @@ pause;
 fprintf('\n=====Part 4: Train Linear Regression =====\n');
 %  Train linear regression with lambda = 0
 lambda = 0;
+
 [theta] = trainLinearReg([ones(m, 1) X], y, lambda);
 
-
-fprintf('Trained theta=(%d x %d)\n',size(theta,1),size(theta,2));
-theta;
-
-%  Plot fit over the data
+%%Plot fit over the data
 %plot(X, y, 'rx', 'MarkerSize', 10, 'LineWidth', 1.5);
 %xlabel('Change in water level (x)');
 %ylabel('Water flowing out of the dam (y)');
@@ -96,11 +93,11 @@ pause;
 %
 fprintf('\n====Part 5: Learning Curve for Linear Regression ====\n');
 lambda = 0;
-[error_train, error_val] = ...
-    learningCurve([ones(m, 1) X], y, ...
-                  [ones(size(Xval, 1), 1) Xval], yval, ...
-                  lambda);
 
+[error_train, error_val]=learningCurve([ones(m, 1) X],y,[ones(size(Xval, 1), 1) Xval],yval,lambda);
+
+
+%figure
 %plot(1:m, error_train, 1:m, error_val);
 %title('Learning curve for linear regression')
 %legend('Train', 'Cross Validation')
@@ -113,6 +110,6 @@ for i = 1:m
     fprintf('  \t%d\t\t%f\t%f\n', i, error_train(i), error_val(i));
 end
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+%fprintf('Program paused. Press enter to continue.\n');
+%pause;
 
