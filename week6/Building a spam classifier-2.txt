@@ -1,0 +1,25 @@
+Error Analysis
+
+And so, once again, because we have a way to evaluate our algorithm. If you try this down here, if I stopped distinguishing upper and lower case, maybe I end up with 3.2 percent error. And I find that therefore, this does worse than if I use only stemming. So, this let's me very quickly decide to go ahead and to distinguish or to not distinguish between upper and lowercase. 
+알고리즘을 평가할수 있는 방법이 있기 때문이다. 대문자와 소문자를 구별하지 않으면 3.2% 의 오차가 난다. 그러므로 형태소 분석만을 사용하는 것보다 더 나쁜결과가 된다는걸 알게된다. 그래서 대소문자를 구별할지 말지를 신속하게 결정할 수 있다. 
+
+So when you're developing a learning algorithm, very often you'll be trying out lots of new ideas and lots of new versions of your learning algorithm. If every time you try out a new idea, if you end up manually examining a bunch of examples again to see if it got better or worse, that's gonna make it really hard to make decisions on. Do you use stemming or not? Do you distinguish upper and lower case or not? 따라서 학습 알고리즘을 개발할 때 매우 많은 새로운 아이디어와 학습 알고리즘의 새로운 버전을 많이 시험하게 될 것입니다. 새로운 아이디어를 시도 할 때마다 수동으로 많은 예제를 다시 검사하여 그것이 더 좋든 나쁘 던지 확인하면 결정을 내리기가 정말로 어려워 질 것입니다. 형태소 분석을 사용합니까, 사용하지 않습니까? 대문자와 소문자를 구별합니까, 그렇지 않습니까?
+
+But by having a single real number evaluation metric, you can then just look and see, oh, did the arrow go up or did it go down? And you can use that to much more rapidly try out new ideas and almost right away tell if your new idea has improved or worsened the performance of the learning algorithm. And this will let you often make much faster progress. 
+그러나 하나의 실수 평가 메트릭을 가짐으로써 화살표가 올라 갔는지 내려 갔는지를 알수있다. 그리고이를 사용하여 훨씬 더 빠르게 새로운 아이디어를 시도 할 수 있으며, 거의 즉시 새로운 아이디어가 학습 알고리즘의 성능을 향상 시키거나 악화 시켰는지 알 수 있습니다. 그리고 이것은 당신이 종종 훨씬 더 빠른 진전을하게 할 것입니다.
+
+
+So the recommended, strongly recommended the way to do error analysis is on the cross validations there rather than the test set. But, you know, there are people that will do this on the test set, even though that's definitely a less mathematic appropriate, certainly a less recommended way to, thing to do than to do error analysis on your cross validation set. 
+라서 오류 분석을 수행하는 방법으로 권장되는 방법은 테스트 집합이 아닌 교차 유효성 검사를 이용하는 것입니다. 하지만, 분명히 적은 수학적 적합성, 확실히 덜 권장되는 방법이지만, 교차 유효성 검사 집합에 대해 오류 분석을 수행하는 것보다 테스트 세트에서이를 수행 할 사람이 있습니다.
+
+
+
+Set to wrap up this video, when starting on a new machine learning problem, what I almost always recommend is to implement a quick and dirty implementation of your learning out of them.
+새로운 기계 학습 문제로 시작할 때, 내가 거의 항상 권장하는 것은 배움의 빠르고 지저분한 구현을 구현하는 것입니다.
+
+And I've almost never seen anyone spend too little time on this quick and dirty implementation. I've pretty much only ever seen people spend much too much time building their first, supposedly, quick and dirty implementation. So really, don't worry about it being too quick, or don't worry about it being too dirty. But really, implement something as quickly as you can. And once you have the initial implementation, this is then a powerful tool for deciding where to spend your time next. 
+그리고 저는 이처럼 빠르고 지저분한 구현에 너무 적은 시간을 소비하는 사람을 본 적이 거의 없습니다. 나는 거의 모든 사람들이 너무나 많은 시간을 들여 첫 번째로, 아마도, 빠르고, 더러운 구현을하는 것을 보았습니다. 정말 너무 빠르다고 걱정하지 마십시오. 너무 더러워지는 것에 대해 걱정하지 마십시오. 하지만 실제로는 가능한 한 빨리 구현하십시오. 초기 구현이 완료되면 다음에 시간을 보낼 장소를 결정하는 강력한 도구가됩니다.
+
+Because first you can look at the errors it makes, and do this sort of error analysis to see what other mistakes it makes, and use that to inspire further development. And second, assuming your quick and dirty implementation incorporated a single real number evaluation metric. This can then be a vehicle for you to try out different ideas and quickly see if the different ideas you're trying out are improving the performance of your algorithm. And therefore let you, maybe much more quickly make decisions about what things to fold in and what things to incorporate into your learning algorithm. 
+먼저 오류를 살펴보고 이러한 종류의 오류 분석을 수행하여 다른 오류를 확인하고이를 사용하여 추가 개발을 유도하십시오. 두 번째로, 빠르고 단순한 구현이 단일 실수 평가 메트릭을 포함한다고 가정합니다. 그러면 다른 아이디어를 시험해보고 시도하고있는 다른 아이디어가 알고리즘의 성능을 향상시키는 지 신속하게 확인할 수있는 수단이 될 수 있습니다. 따라서 학습 알고리즘에 통합 할 항목과 무엇을 포함할지에 대해 훨씬 더 신속하게 결정을 내릴 수 있습니다.
+
