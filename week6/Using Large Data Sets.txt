@@ -11,7 +11,7 @@ So in this video, let's talk more about that. Let me start with a story.
 1:01
 Many, many years ago, two researchers that I know, Michelle Banko and Eric Broule ran the following fascinating study.
 1:09
-They were interested in studying the effect of using different learning algorithms versus trying them out on different training set sciences, they were considering the problem of classifying between confusable words, so for example, in the sentence: for breakfast I ate, should it be to, two or too? Well, for this example, for breakfast I ate two, 2 eggs.
+They were interested in studying the effect of using different learning algorithms versus trying them out on different training set sciences(size?), they were considering the problem of classifying between confusable words, so for example, in the sentence: for breakfast I ate, should it be to, two or too? Well, for this example, for breakfast I ate two, 2 eggs.
 1:33
 So, this is one example of a set of confusable words and that's a different set. So they took machine learning problems like these, sort of supervised learning problems to try to categorize what is the appropriate word to go into a certain position in an English sentence.
 1:51
