@@ -59,7 +59,7 @@ going to think of these as low-bias algorithms because you know we can fit very 
 8:25
 and because we have a very powerful learning algorithm, they can fit very complex functions.
 8:31
-Chances are, if we run these algorithms on the data sets, it will be able to fit the training set well, and so hopefully the training error will be slow.
+Chances are, if we run these algorithms on the data sets, it will be able to fit the training set well, and so hopefully the training error will be small.
 8:44
 Now let's say, we use a massive, massive training set, in that case, if we have a huge training set, then hopefully even though we have a lot of parameters but if the training set is sort of even much larger than the number of parameters then hopefully these albums will be unlikely to overfit.
 9:02
@@ -76,5 +76,8 @@ and by using a very large training set, this ensures that we don't have a varian
 learning algorithm and this allows us to do well on the test set. And fundamentally it's a key ingredients of assuming that the features have enough information and we have a rich class of functions that's why it guarantees low bias,
 10:20
 and then it having a massive training set that that's what guarantees more variance.
+
+(QUIZ)
+
 10:27
-So this gives us a set of conditions rather hopefully some understanding of what's the sort of problem where if you have a lot of data and you train a learning algorithm with lot of parameters, that might be a good way to give a high performance learning algorithm and really, I think the key test that I often ask myself are first, can a human experts look at the features x and confidently predict the value of y. Because that's sort of a certification that y can be predicted accurately from the features x and second, can we actually get a large training set, and train the learning algorithm with a lot of parameters in the training set and if you can't do both then that's more often give you a very kind performance learning algorithm.
+So this gives us a set of conditions rather hopefully some understanding of what's the sort of problem where if you have a lot of data and you train a learning algorithm with lot of parameters, that might be a good way to give a high performance learning algorithm and really, I think the key test that I often ask myself are first, can a human experts look at the features x and confidently predict the value of y. Because that's sort of a certification that y can be predicted accurately from the features x and second, can we actually get a large training set, and train the learning algorithm with a lot of parameters in the training set and if you can do both then that's more often give you a very kind performance learning algorithm.
