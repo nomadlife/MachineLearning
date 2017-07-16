@@ -23,6 +23,15 @@ edit home .
 EDITOR('vi')
 more off
 
+환경설정(OS X) : location(home/.octaverc)
+echo off
+PS1('>> ')
+cd '/Users/jw/Documents/MachineLearning'
+edit mode sync
+edit home .
+EDITOR('vi')
+more off
+
 
 
 doc  : 전체 메뉴얼
