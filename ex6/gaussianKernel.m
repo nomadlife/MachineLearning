@@ -17,7 +17,7 @@ sim = 0;
 %
 
 
-
+sim = exp(-1/(2*sigma^2)*sumsq(x1-x2))
 
 
 
