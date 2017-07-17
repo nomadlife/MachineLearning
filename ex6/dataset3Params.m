@@ -28,12 +28,12 @@ sigma_test = [0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30];
 err = inf;
 for i=1:length(C_test)
     for j=1:length(sigma_test)
-        model= svmTrain(X, y, C_test, @(x1, x2) gaussianKernel(x1, x2, sigma_test));
+        model= svmTrain(X, y, C_test(i), @(x1, x2) gaussianKernel(x1, x2, sigma_test(j)));
         predictions = svmPredict(model, Xval);
         err_test=mean(double(predictions ~= yval));
         if err_test<err
-            C = C_test;
-            sigma = sigma_test;
+            C = C_test(i);
+            sigma = sigma_test(j);
             err = err_test;
         end
     end
