@@ -19,17 +19,17 @@
 %% Initialization
 clear ; close all; clc
 
-%% =============== Part 1: Loading and Visualizing Data ================
-%  We start the exercise by first loading and visualizing the dataset. 
-%  The following code will load the dataset into your environment and plot
-%  the data.
+
+%% =============== Part 6: Visualizing Dataset 3 ================
+%  The following code will load the next dataset into your environment and 
+%  plot the data. 
 %
 
 fprintf('Loading and Visualizing Data ...\n')
 
-% Load from ex6data1: 
+% Load from ex6data3: 
 % You will have X, y in your environment
-load('ex6data1.mat');
+load('ex6data3.mat');
 
 % Plot training data
 plotData(X, y);
@@ -37,22 +37,22 @@ plotData(X, y);
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
-%% ==================== Part 2: Training Linear SVM ====================
-%  The following code will train a linear SVM on the dataset and plot the
-%  decision boundary learned.
-%
+%% ========== Part 7: Training SVM with RBF Kernel (Dataset 3) ==========
 
-% Load from ex6data1: 
+%  This is a different dataset that you can use to experiment with. Try
+%  different values of C and sigma here.
+% 
+
+% Load from ex6data3: 
 % You will have X, y in your environment
-load('ex6data1.mat');
+load('ex6data3.mat');
 
-fprintf('\nTraining Linear SVM ...\n')
+% Try different SVM Parameters here
+[C, sigma] = dataset3Params(X, y, Xval, yval);
 
-% You should try to change the C value below and see how the decision
-% boundary varies (e.g., try C = 1000)
-C = 1;
-model = svmTrain(X, y, C, @linearKernel, 1e-3, 20);
-visualizeBoundaryLinear(X, y, model);
+% Train the SVM
+model= svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma));
+visualizeBoundary(X, y, model);
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
