@@ -1,0 +1,103 @@
+0:00
+In the clustering problem we are given an unlabeled data set and we would like to have an algorithm automatically group the data into coherent subsets or into coherent clusters for us.
+클러스터링 문제에서 우리는 레이블이없는 데이터 세트가 주어졌고 알고리즘은 자동으로 데이터를 일관된 하위 집합 또는 일관된 클러스터로 그룹화하고자합니다.
+0:12
+The K Means algorithm is by far the most popular, by far the most widely used clustering algorithm, and in this video I would like to tell you what the K Means Algorithm is and how it works.
+K Means 알고리즘은 지금까지 가장 널리 사용되는 클러스터링 알고리즘으로 가장 많이 사용되는 알고리즘이며이 비디오에서 K 평균 알고리즘이 무엇이며 어떻게 작동하는지 알려 드리고자합니다.
+0:27
+The K means clustering algorithm is best illustrated in pictures. Let's say I want to take an unlabeled data set like the one shown here, and I want to group the data into two clusters.
+K는 클러스터링 알고리즘이 그림에 가장 잘 나타나 있음을 의미합니다. 여기에 표시된 것과 같이 레이블이 지정되지 않은 데이터 세트를 가져오고 데이터를 두 개의 클러스터로 그룹화하려고한다고 가정 해 보겠습니다.
+0:37
+If I run the K Means clustering algorithm, here is what I'm going to do. The first step is to randomly initialize two points, called the cluster centroids. So, these two crosses here, these are called the Cluster Centroids and I have two of them because I want to group my data into two clusters.
+K 평균 클러스터링 알고리즘을 실행하면 다음과 같습니다. 첫 번째 단계는 무작위로 클러스터 중심이라고 불리는 두 점을 초기화하는 것입니다. 그래서이 두 개는 여기에서 교차합니다, 이것들을 클러스터 중심이라고 부르며, 두 개를 가지고 있습니다. 왜냐하면 내 데이터를 두 개의 클러스터로 그룹화하기를 원하기 때문입니다.
+0:59
+K Means is an iterative algorithm and it does two things.
+1:03
+First is a cluster assignment step, and second is a move centroid step. So, let me tell you what those things mean.
+첫 번째는 클러스터 할당 단계이고 두 번째는 이동 중심 단계입니다. 그래서, 그 의미가 무엇인지 말해 보도록하겠습니다.
+1:11
+The first of the two steps in the loop of K means, is this cluster assignment step. What that means is that, it's going through each of the examples, each of these green dots shown here and depending on whether it's closer to the red cluster centroid or the blue cluster centroid, it is going to assign each of the data points to one of the two cluster centroids.
+K의 루프에서 두 단계 중 첫 번째 단계는이 클러스터 할당 단계입니다. 즉, 여기에 표시된 녹색 점들 각각이 빨간색 클러스터 중심 또는 파란색 클러스터 중심에 더 가까운 지 여부에 따라 각 데이터 포인트를 하나씩 지정하려고하는 예제가 있습니다. 두 개의 클러스터 중심의
+1:32
+Specifically, what I mean by that, is to go through your data set and color each of the points either red or blue, depending on whether it is closer to the red cluster centroid or the blue cluster centroid, and I've done that in this diagram here.
+구체적으로, 내가 의미하는 바는 데이터 세트를 살펴보고 빨간색 또는 파란색 중점에 가까운지 여부에 따라 빨강 또는 파랑 중 하나를 색칠하는 것입니다. 이 도표는 여기에 있습니다.
+1:46
+So, that was the cluster assignment step.
+1:49
+The other part of K means, in the loop of K means, is the move centroid step, and what we are going to do is, we are going to take the two cluster centroids, that is, the red cross and the blue cross, and we are going to move them to the average of the points colored the same colour. So what we are going to do is look at all the red points and compute the average, really the mean of the location of all the red points, and we are going to move the red cluster centroid there. And the same things for the blue cluster centroid, look at all the blue dots and compute their mean, and then move the blue cluster centroid there. So, let me do that now. We're going to move the cluster centroids as follows
+K의 다른 부분은 K 평균의 반복에서 의미심장 한 것이 이동 중 심의 단계임을 의미하며, 우리가 할 일은 두 개의 클러스터 중심, 즉 적십자와 십자가를 취할 것이라는 것입니다. 그리고 우리는 같은 색으로 착색 된 점들의 평균점으로 그들을 이동시킬 것입니다. 그래서 우리가하려고하는 것은 모든 붉은 점을보고 모든 붉은 점의 위치의 평균을 계산하는 것입니다. 그리고 우리는 붉은 색 점 중심을 그곳으로 옮길 것입니다. 그리고 파란색 클러스터 중심점에 대한 동일한 것들은 모든 파란색 점을보고 그 평균을 계산 한 다음 파란색 클러스터 중심을 그곳으로 이동시킵니다. 그래서 지금 해봅시다. 다음과 같이 클러스터 중심을 이동합니다.
+2:24
+and I've now moved them to their new means. The red one moved like that and the blue one moved like that and the red one moved like that. And then we go back to another cluster assignment step, so we're again going to look at all of my unlabeled examples and depending on whether it's closer the red or the blue cluster centroid, I'm going to color them either red or blue. I'm going to assign each point to one of the two cluster centroids, so let me do that now.
+나는 이제 그들을 새로운 수단으로 옮겼습니다. 빨간 색은 그 것처럼 움직 였고 푸른 색은 그렇게 움직 였고 빨간색은 그렇게 움직였습니다. 그리고 우리는 다른 클러스터 할당 단계로 돌아갑니다. 그래서 우리는 레이블이없는 모든 예제들을 다시 살펴볼 것입니다. 그리고 그것들이 빨간색 또는 파란색 클러스터 중심에 가까운지 여부에 따라, 나는 그것들을 빨간색 또는 파란색으로 색칠 것입니다 . 나는 두 개의 클러스터 중심 중 하나에 각 점을 할당 할 것이므로 지금 그렇게하겠습니다.
+2:51
+And so the colors of some of the points just changed.
+2:53
+And then I'm going to do another move centroid step. So I'm going to compute the average of all the blue points, compute the average of all the red points and move my cluster centroids like this, and so, let's do that again. Let me do one more cluster assignment step. So colour each point red or blue, based on what it's closer to and then do another move centroid step and we're done. And in fact if you keep running additional iterations of K means from here the cluster centroids will not change any further and the colours of the points will not change any further. And so, this is the, at this point, K means has converged and it's done a pretty good job finding
+그리고 나서 다른 이동 중 심의 단계를 수행 할 것입니다. 그래서 나는 모든 파란 점의 평균을 계산하고, 모든 붉은 점의 평균을 계산하고, 클러스터 중심을 이처럼 움직일 것입니다. 그래서 다시 해봅시다. 한 번 더 클러스터 할당 단계를 수행하겠습니다. 따라서 각 점을 빨간색 또는 파란색으로 색칠하고 가까이에있는 것을 기준으로 한 다음 다른 점을 중심 단계로 이동하면됩니다. 그리고 실제로 K의 추가 반복을 계속하면 여기에서 클러스터 중심이 더 이상 변하지 않을 것이고 점의 색상은 더 이상 변하지 않을 것입니다. 그리고, 이것은,이 시점에서 K 수단이 수렴했음을 의미합니다.
+3:37
+the two clusters in this data. Let's write out the K means algorithm more formally.
+3:42
+The K means algorithm takes two inputs. One is a parameter K, which is the number of clusters you want to find in the data. I'll later say how we might go about trying to choose k, but for now let's just say that we've decided we want a certain number of clusters and we're going to tell the algorithm how many clusters we think there are in the data set. And then K means also takes as input this sort of unlabeled training set of just the Xs and because this is unsupervised learning, we don't have the labels Y anymore. And for unsupervised learning of the K means I'm going to use the convention that XI is an RN dimensional vector. And that's why my training examples are now N dimensional rather N plus one dimensional vectors.
+K는 알고리즘이 두 개의 입력을받는 것을 의미합니다. 하나는 매개 변수 K이며, 이는 데이터에서 찾으려는 클러스터 수입니다. 나중에 k를 선택하는 방법에 대해 이야기 할 것입니다. 그러나 지금은 특정 수의 클러스터를 원한다고 결정했다고 가정하고 알고리즘에 몇 개의 클러스터가 있는지 생각해 보겠습니다. 데이터 세트 그리고 K는 입력으로이 X의 레이블없는 훈련 세트를 입력한다는 것을 의미합니다. 이것은 감독되지 않은 학습이기 때문에 더 이상 Y라는 레이블을 가지고 있지 않습니다. 그리고 K의 감독되지 않은 학습은 XI가 RN 차원 벡터라는 규칙을 사용한다는 것을 의미합니다. 이것이 바로 교육 사례가 N 차원이 아닌 N 차원과 1 차원 벡터가 된 이유입니다.
+4:24
+This is what the K means algorithm does.
+4:27
+The first step is that it randomly initializes k cluster centroids which we will call mu 1, mu 2, up to mu k. And so in the earlier diagram, the cluster centroids corresponded to the location of the red cross and the location of the blue cross. So there we had two cluster centroids, so maybe the red cross was mu 1 and the blue cross was mu 2, and more generally we would have k cluster centroids rather than just 2. Then the inner loop of k means does the following, we're going to repeatedly do the following.
+첫 번째 단계는 k 개의 클러스터 중심을 무작위로 초기화하고 mu 1, mu 2, mu k까지 호출 할 것입니다. 그리고 이전의 다이어그램에서, 클러스터 중심은 적십자의 위치와 십자가의 위치에 일치했습니다. 그래서 우리는 두 개의 클러스터 중심을 가졌습니다. 그래서 붉은 십자가는 mu 1이었고 푸른 십자가는 mu 2 였고,보다 일반적으로 우리는 단지 2가 아닌 k 클러스터 중심을 가졌을 것입니다. 그러면 k의 내부 루프는 다음을 수행합니다. 반복해서 다음과 같이 할 것입니다.
+5:00
+First for each of my training examples, I'm going to set this variable CI to be the index 1 through K of the cluster centroid closest to XI. So this was my cluster assignment step, where we took each of my examples and coloured it either red or blue, depending on which cluster centroid it was closest to. So CI is going to be a number from 1 to K that tells us, you know, is it closer to the red cross or is it closer to the blue cross,
+먼저 각 교육 사례에 대해이 변수 CI를 XI에 가장 가까운 클러스터 중심의 K를 통해 색인 1로 설정합니다. 그래서 이것은 나의 클러스터 할당 단계였습니다. 우리는 각각의 예제를 가져 와서 가장 가까운 클러스터 중 심도에 따라 빨간색 또는 파란색으로 색을 칠했습니다. 따라서 CI는 1에서 K까지의 숫자가 될 것입니다. 알다시피, 적색 십자가에 더 가깝거나 파란색 십자가에 더 가깝습니다.
+5:32
+and another way of writing this is I'm going to, to compute Ci, I'm going to take my Ith example Xi and and I'm going to measure it's distance to each of my cluster centroids, this is mu and then lower-case k, right, so capital K is the total number centroids and I'm going to use lower case k here to index into the different centroids.
+이것을 쓰는 또 다른 방법은 Ci를 계산하기 위해 갈 것이고, 저는 제 I 예제 인 Xi를 취할 것입니다. 그리고 그것을 클러스터 중심의 각각에 대해 측정 할 것입니다. 이것은 mu이고 더 낮은 것입니다. -case k, 맞습니다. 따라서 자본 K는 총 수 centroids이고 여기에서 소문자 k를 사용하여 다른 centroid에 색인을 생성합니다.
+5:56
+But so, Ci is going to, I'm going to minimize over my values of k and find the value of K that minimizes this distance between Xi and the cluster centroid, and then, you know, the value of k that minimizes this, that's what gets set in Ci. So, here's another way of writing out what Ci is.
+하지만 저는 Ci의 값을 최소화하고, Xi와 클러스터 중심 사이의 거리를 최소화하는 K의 값을 찾은 다음,이 값을 최소화하는 k 값을 알 수 있습니다. 이것이 Ci에 설정된 것입니다. 자, Ci가 무엇인지 쓰는 또 다른 방법이 있습니다.
+6:18
+If I write the norm between Xi minus Mu-k,
+6:23
+then this is the distance between my ith training example Xi and the cluster centroid Mu subscript K, this is--this here, that's a lowercase K. So uppercase K is going to be used to denote the total number of cluster centroids, and this lowercase K's a number between one and capital K. I'm just using lower case K to index into my different cluster centroids.
+이것은 i 번째 훈련 예제 Xi와 클러스터 중 심 Mu 하위 첨자 K 사이의 거리입니다. 여기가 이것이 소문자 K입니다. 따라서 대문자 K는 클러스터 중심의 총 수를 나타내는 데 사용됩니다. 소문자 K는 1과 자본 K 사이의 숫자입니다. 저는 다른 클러스터 중심에 색인을하기 위해 소문자 K를 사용하고 있습니다.
+6:47
+Next is lower case k. So
+6:50
+that's the distance between the example and the cluster centroid and so what I'm going to do is find the value of K, of lower case k that minimizes this, and so the value of k that minimizes you know, that's what I'm going to set as Ci, and by convention here I've written the distance between Xi and the cluster centroid, by convention people actually tend to write this as the squared distance. So we think of Ci as picking the cluster centroid with the smallest squared distance to my training example Xi. But of course minimizing squared distance, and minimizing distance that should give you the same value of Ci, but we usually put in the square there, just as the convention that people use for K means. So that was the cluster assignment step.
+그것은 예제와 클러스터 중 심도 사이의 거리입니다. 그래서 내가 할 일은 K를 구하는 것입니다. 소문자 k를 최소화하는 것입니다. 따라서 k를 최소화하는 값을 알면 그것이 제가하는 것입니다. Ci로 설정하려고합니다. 그리고 컨벤션을 통해 여기에서 Xi와 클러스터 중심 사이의 거리를 작성했습니다. 관습에 따라 사람들은 실제로이를 제곱 거리로 쓰는 경향이 있습니다. 그래서 우리는 Ci를 제 훈련 예 Xi에 대한 가장 작은 제곱 거리를 가진 클러스터 중심을 선택한다고 생각합니다. 물론 제곱 거리를 최소화하고 거리를 최소화해야 Ci와 동일한 가치를 얻을 수 있지만, K가 사람들이 사용하는 컨벤션과 마찬가지로 보통 우리는 거기에 사각형을 넣습니다. 그래서 그것은 클러스터 할당 단계였습니다.
+7:33
+The other in the loop of K means does the move centroid step.
+7:40
+And what that does is for each of my cluster centroids, so for lower case k equals 1 through K, it sets Mu-k equals to the average of the points assigned to cluster. So as a concrete example, let's say that one of my cluster centroids, let's say cluster centroid two, has training examples, you know, 1, 5, 6, and 10 assigned to it. And what this means is, really this means that C1 equals to C5 equals to C6 equals to and similarly well c10 equals, too, right?
+그리고 그것이하는 일은 저의 클러스터 중심에 대한 것입니다. 그래서 소문자 k가 1에서 K까지이면, Mu-k는 클러스터에 할당 된 점수의 평균값으로 설정됩니다. 예를 들어, 클러스터 중심도 중 하나에 클러스터 중심도가 2라고 가정 해 봅시다. 예를 들어 1, 5, 6 및 10이 할당되어 있다고 가정 해 봅시다. 이것이 의미하는 바는 실제로 C1이 C5와 같고 C6은 C6과 같고 비슷하게 잘 c10도 같음을 의미합니다.
+8:14
+If we got that from the cluster assignment step, then that means examples 1,5,6 and 10 were assigned to the cluster centroid two.
+우리가 클러스터 할당 단계에서 얻은 것이라면, 예를 들어 1,5,6 및 10이 클러스터 중심 2에 할당되었음을 의미합니다.
+8:24
+Then in this move centroid step, what I'm going to do is just compute the average of these four things.
+그러면이 이동 중 심의 단계에서, 제가하려고하는 것은이 네 가지 것들의 평균을 계산하는 것입니다.
+8:31
+So X1 plus X5 plus X6 plus X10. And now I'm going to average them so here I have four points assigned to this cluster centroid, just take one quarter of that. And now Mu2 is going to be an n-dimensional vector. Because each of these example x1, x5, x6, x10 each of them were an n-dimensional vector, and I'm going to add up these things and, you know, divide by four because I have four points assigned to this cluster centroid, I end up with my move centroid step, for my cluster centroid mu-2. This has the effect of moving mu-2 to the average of the four points listed here.
+따라서 X1 + X5 + X6 + X10. 그리고 이제 저는 그것들을 평균 할 것입니다. 그래서이 클러스터 중심에 4 점을 할당하고, 그 중 1/4을 가져 가야합니다. 그리고 이제 Mu2는 n 차원 벡터가 될 것입니다. 이 각각의 예제 x1, x5, x6, x10은 각각 n 차원 벡터 였으므로이 클러스터 중점에 네 개의 점을 할당 했으므로이 두 가지를 더할 것입니다. , 나는 나의 중심 centroid mu-2를 위해 나의 움직임 centroid 단계로 끝난다. 이것은 mu-2를 여기에 나열된 4 가지 포인트의 평균으로 이동시키는 효과가 있습니다.
+9:12
+One thing that I've asked is, well here we said, let's let mu-k be the average of the points assigned to the cluster. But what if there is a cluster centroid no points with zero points assigned to it. In that case the more common thing to do is to just eliminate that cluster centroid. And if you do that, you end up with K minus one clusters
+제가 한 가지 질문 한 것은 잘 말하면, mu-k를 클러스터에 할당 된 포인트의 평균으로합시다. 그러나 클러스터 중심점에 0 점이 할당 된 점이 없으면 어떻게 될까요? 이 경우 더 일반적인 일은 클러스터 중심을 제거하는 것입니다. 그리고 그렇게하면, 당신은 K-1 개의 클러스터로 끝납니다.
+9:31
+instead of k clusters. Sometimes if you really need k clusters, then the other thing you can do if you have a cluster centroid with no points assigned to it is you can just randomly reinitialize that cluster centroid, but it's more common to just eliminate a cluster if somewhere during K means it with no points assigned to that cluster centroid, and that can happen, altthough in practice it happens not that often. So that's the K means Algorithm.
+k 개의 클러스터 대신에. 때로는 k 클러스터가 정말로 필요하다면, 포인트가 할당되지 않은 클러스터 중심이있는 경우 할 수있는 다른 일은 클러스터 중점을 무작위로 다시 초기화 할 수 있다는 것입니다. 그러나 K 동안 어딘가에 클러스터를 제거하는 것이 더 일반적입니다 그 클러스터 중점에 할당 된 포인트가없는 것을 의미하며 실제로 일어날 수 있습니다. 실제로는 그렇게 자주 발생하지는 않습니다. 그래서 K는 알고리즘을 의미합니다.
+9:59
+Before wrapping up this video I just want to tell you about one other common application of K Means and that's to the problems with non well separated clusters.
+이 동영상을 마무리하기 전에 K Means의 다른 일반적인 응용 프로그램에 대해 이야기하고자합니다. 이는 잘 분리되지 않은 클러스터의 문제입니다.
+10:08
+Here's what I mean. So far we've been picturing K Means and applying it to data sets like that shown here where we have three pretty well separated clusters, and we'd like an algorithm to find maybe the 3 clusters for us. But it turns out that very often K Means is also applied to data sets that look like this where there may not be several very well separated clusters. Here is an example application, to t-shirt sizing.
+여기에 의미하는 바가 있습니다. 지금까지 우리는 K Means를 묘사하고 그것을 꽤 잘 분리 된 3 개의 클러스터가있는 여기에 표시된 것과 같은 데이터 세트에 적용했습니다. 우리는 3 개의 클러스터를 찾을 수있는 알고리즘을 원합니다. 그러나 K Means가 매우 잘 분리 된 클러스터가없는 곳에서 이와 같이 보이는 데이터 세트에도 적용되는 경우가 매우 많습니다. 다음은 티셔츠 크기 조정에 대한 예제 애플리케이션입니다.
+10:34
+Let's say you are a t-shirt manufacturer you've done is you've gone to the population that you want to sell t-shirts to, and you've collected a number of examples of the height and weight of these people in your population and so, well I guess height and weight tend to be positively highlighted so maybe you end up with a data set like this, you know, with a sample or set of examples of different peoples heights and weight. Let's say you want to size your t shirts. Let's say I want to design and sell t shirts of three sizes, small, medium and large. So how big should I make my small one? How big should I my medium? And how big should I make my large t-shirts.
+당신이 한 티셔츠 제조업체가 티셔츠를 팔고 자하는 인구에 갔다고 말하면, 당신의 티셔츠를 팔고 자하는 사람들의 키와 몸무게에 대한 많은 예를 수집했습니다. 인구와 그렇게 잘 키와 체중이 긍정적으로 강조되는 경향이 있습니다. 그래서 여러분은 다른 민족 높이와 무게의 샘플이나 세트로 이런 식으로 데이터를 만들 수 있습니다. 티셔츠의 크기를 정하고 싶다고합시다. 작고 중간 크기의 3 가지 크기의 셔츠를 디자인하고 판매하고 싶다고 가정 해 봅시다. 그럼 내가 얼마나 작게 만들어야 하나? 내 매체는 얼마나 커야합니까? 그리고 내 큰 티셔츠를 얼마나 커야 하나?
+11:10
+One way to do that would to be to run my k means clustering logarithm on this data set that I have shown on the right and maybe what K Means will do is group all of these points into one cluster and group all of these points into a second cluster and group all of those points into a third cluster. So, even though the data, you know, before hand it didn't seem like we had 3 well separated clusters, K Means will kind of separate out the data into multiple pluses for you. And what you can do is then look at this first population of people and look at them and, you know, look at the height and weight, and try to design a small t-shirt so that it kind of fits this first population of people well and then design a medium t-shirt and design a large t-shirt. And this is in fact kind of an example of market segmentation
+이를 수행하는 한 가지 방법은 오른쪽에 표시된 데이터 세트에서 k를 의미하는 클러스터링 로그를 실행하는 것입니다. K 평균이 수행 할 작업은 이러한 모든 포인트를 하나의 클러스터로 그룹화하고 이러한 모든 포인트를 하나의 클러스터로 그룹화하는 것입니다. 두 번째 클러스터를 만들고 그 모든 포인트를 세 번째 클러스터로 그룹화합니다. 그래서, 비록 데이터가 우리가 3 개의 분리 된 클러스터를 가지고있는 것처럼 보이지는 않았지만, K Means는 데이터를 여러 개의 pluses로 분리 할 것입니다. 그리고 나서 당신이 할 수있는 일은이 사람들의 첫 번째 인구를보고 그들을보고, 높이와 무게를보고 작은 티셔츠를 디자인하여 사람들의 첫 번째 인구에 맞도록하십시오 그런 다음 중형 티셔츠를 디자인하고 큰 티셔츠를 디자인하십시오. 그리고 이것은 실제로 시장 세분화의보기의 종류입니다
+12:01
+where you're using K Means to separate your market into 3 different segments. So you can design a product separately that is a small, medium, and large t-shirts,
+시장을 3 개의 다른 세그먼트로 분리하기 위해 K 평균을 사용합니다. 따라서 작고 중간 크기의 대형 티셔츠 인 제품을 별도로 설계 할 수 있습니다.
+12:09
+that tries to suit the needs of each of your 3 separate sub-populations well. So that's the K Means algorithm. And by now you should know how to implement the K Means Algorithm and kind of get it to work for some problems. But in the next few videos what I want to do is really get more deeply into the nuts and bolts of K means and to talk a bit about how to actually get this to work really well.
+그것은 당신의 3 개의 개별 하위 집단의 필요에 잘 맞게하려고 노력합니다. 이것이 바로 K 평균 알고리즘입니다. 그리고 이제는 K 평균 알고리즘을 구현하는 방법을 알아야하며, 일부 문제에 대해서는 작동하도록해야합니다. 그러나 다음 몇 가지 비디오에서 내가하고 싶은 것은 실제로 K의 의미와 견해에 더 깊이 들어가고 이것이 실제로 실제로 잘 작동하도록하는 방법에 대해 조금 이야기합니다.
