@@ -29,42 +29,38 @@ If you were to measure--if you were to, you know, do a survey or do a test of th
 And what you really care about might be this sort of this sort of, this direction, a different feature that really measures pilot aptitude.
 3:00
 And I'm making up the name aptitude of course, but again, if you highly correlated features, maybe you really want to reduce the dimension.
+ - 정말 관련이 있다면 dimension을 줄여야할것.
 3:07
 So, let me say a little bit more about what it really means to reduce the dimension of the data from 2 dimensions down from 2D to 1 dimensional or to 1D. Let me color in these examples by using different colors.
 3:21
-And in this case by reducing the dimension what I mean is that I would like to find maybe this line, this, you know, direction on which most of the data seems to lie and project all the data onto that line which is true, and by doing so, what I can do is just measure the position of each of the examples on that line. And what I can do is come up with a new feature, z1, 
+And in this case by reducing the dimension what I mean is that I would like to find maybe this line, this, you know, direction on which most of the data seems to lie and project all the data onto that line which is true, and by doing so, what I can do is just measure the position of each of the examples on that line. And what I can do is come up with a new feature, z1,
 3:46
 and to specify the position on the line I need only one number, so it says z1 is a new feature that specifies the location of each of those points on this green line. And what this means, is that where as previously if i had an example x1, maybe this was my first example, x1. So in order to represent x1 originally x1.
 4:09
-I needed a two dimensional number, or a two dimensional feature vector. Instead now I can represent
+I needed a two dimensional number, or a two dimensional feature vector. Instead now I can represent z1.
 4:18
-z1. I could use just z1 to represent my first
-4:23
-example, and that's going to be a real number. And similarly x2 you know, if x2 is my second example there,
+I could use just z1 to represent my first example, and that's going to be a real number. And similarly x2 you know, if x2 is my second example there,
 4:32
-then previously, whereas this required two numbers to represent if I instead compute the projection
-4:40
-of that black cross onto the line. And now I only need one real number which is z2 to represent the location of this point z2 on the line.
-4:54
-And so on through my M examples.
+then previously, whereas this required two numbers to represent if I instead compute the projection of that black cross onto the line. And now I only need one real number which is z2 to represent the location of this point z2 on the line. And so on through my M examples.
 4:57
-So, just to summarize, if we allow ourselves to approximate
-5:02
-the original data set by projecting all of my original examples onto this green line over here, then I need only one number, I need only real number to specify the position of a point on the line, and so what I can do is therefore use just one number to represent the location of each of my training examples after they've been projected onto that green line.
+So, just to summarize, if we allow ourselves to approximate the original data set by projecting all of my original examples onto this green line over here, then I need only one number, I need only real number to specify the position of a point on the line, and so what I can do is therefore use just one number to represent the location of each of my training examples after they've been projected onto that green line.
 5:27
 So this is an approximation to the original training self because I have projected all of my training examples onto a line. But now, I need to keep around only one number for each of my examples.
 5:41
 And so this halves the memory requirement, or a space requirement, or what have you, for how to store my data.
 5:49
 And perhaps more interestingly, more importantly, what we'll see later, in the later video as well is that this will allow us to make our learning algorithms run more quickly as well. And that is actually, perhaps, even the more interesting application of this data compression rather than reducing the memory or disk space requirement for storing the data.
+ - 연관된 feature를 줄임으로써, 메모리,디스크 사용량도 줄일수 있지만, 연산속도가 빨라지는게 더 중요함.
 6:10
 On the previous slide we showed an example of reducing data from 2D to 1D. On this slide, I'm going to show another example of reducing data from three dimensional 3D to two dimensional 2D.
 6:22
 By the way, in the more typical example of dimensionality reduction we might have a thousand dimensional data or 1000D data that we might want to reduce to let's say a hundred dimensional or 100D, but because of the limitations of what I can plot on the slide. I'm going to use examples of 3D to 2D, or 2D to 1D.
+ - 보통은 1000D를 100D로 줄이지만, 설명을 위해 3D 를 2D로 줄이는 예를 설명.
 6:43
 So, let's have a data set like that shown here. And so, I would have a set of examples x(i) which are points in r3. So, I have three dimension examples. I know it might be a little bit hard to see this on the slide, but I'll show a 3D point cloud in a little bit. And it might be hard to see here, but all of this data maybe lies roughly on the plane, like so.
 7:07
 And so what we can do with dimensionality reduction, is take all of this data and project the data down onto a two dimensional plane. So, here what I've done is, I've taken all the data and I've projected all of the data, so that it all lies on the plane.
+ - 3d data를 2d data 로 projection 시킴.
 7:22
 Now, finally, in order to specify the location of a point within a plane, we need two numbers, right? We need to, maybe, specify the location of a point along this axis, and then also specify it's location along that axis. So, we need two numbers, maybe called z1 and z2 to specify the location of a point within a plane. And so, what that means, is that we can now represent each example, each training example, using two numbers that I've drawn here, z1, and z2.
 7:53
@@ -73,11 +69,12 @@ So, our data can be represented using vector z which are in r2.
 And these subscript, z subscript 1, z subscript 2, what I just mean by that is that my vectors here, z, you know, are two dimensional vectors, z1, z2. And so if I have some particular examples, z(i), or that's the two dimensional vector, z(i)1, z(i)2.
 8:20
 And on the previous slide when I was reducing data to one dimensional data then I had only z1, right? And that is what a z1 subscript 1 on the previous slide was, but here I have two dimensional data, so I have z1 and z2 as the two components of the data.
+ - 평면에서 z1,z2 두가지 벡터가 필요.
 8:36
 Now, let me just make sure that these figures make sense. So let me just reshow these exact three figures again but with 3D plots. So the process we went through was that shown in the lab is the optimal data set, in the middle the data set projects on the 2D, and on the right the 2D data sets with z1 and z2 as the axis. Let's look at them a little bit further. Here's my original data set, shown on the left, and so I had started off with a 3D point cloud like so, where the axis are labeled x1, x2, x3, and so there's a 3D point but most of the data, maybe roughly lies on some, you know, not too far from some 2D plain.
 9:13
 So, what we can do is take this data and here's my middle figure. I'm going to project it onto 2D. So, I've projected this data so that all of it now lies on this 2D surface. As you can see all the data lies on a plane, 'cause we've projected everything onto a plane, and so what this means is that now I need only two numbers, z1 and z2, to represent the location of point on the plane.
 9:40
-And so that's the process that we can go through to reduce our data from three dimensional to two dimensional. So that's dimensionality reduction and how we can use it to compress our data.
-9:54
-And as we'll see later this will allow us to make some of our learning algorithms run much later as well, but we'll get to that only in a later video.
+And so that's the process that we can go through to reduce our data from three dimensional to two dimensional.
+9:48
+So that's dimensionality reduction and how we can use it to compress our data. And as we'll see later this will allow us to make some of our learning algorithms run much later as well, but we'll get to that only in a later video.
