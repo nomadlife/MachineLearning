@@ -34,62 +34,39 @@ It's a bit unfortunate that the Greek alphabet sigma looks exactly like the summ
 5:57
 And an octave, the way you do that is you use this command, u s v equals s v d of sigma. SVD, by the way, stands for singular value decomposition. This is a Much more advanced single value composition.It is much more advanced linear algebra than you actually need to know but now It turns out that when sigma is equal to matrix there is a few ways to compute these are high in vectors and If you are an expert in linear algebra and if you've heard of high in vectors before you may know that there is another octet function called I, which can also be used to compute the same thing. and It turns out that the SVD function and the I function it will give you the same vectors, although SVD is a little more numerically stable. So I tend to use SVD, although I have a few friends that use the I function to do this as well, but when you apply this to a covariance matrix sigma it gives you the same thing. This is because the covariance matrix always satisfies a mathematical Property called symmetric positive definite You really don't need to know what that means, but the SVD, and I-functions are different functions but when they are applied to a covariance matrix which can be proved to always satisfy this mathematical property; they'll always give you the same thing.
 7:16
-Okay, that was probably much more linear algebra than you needed to know. In case none of that made sense, don't worry about it. All you need to know is that this system command you should implement in Octave. And if you're implementing this in a different language than Octave or MATLAB, what you should do is find the numerical linear algebra library that can compute the SVD or singular value decomposition, and there are many such libraries for probably all of the major programming languages. People can use that to compute the matrices u, s, and d of the covariance matrix sigma. So just to fill in some more details, this covariance matrix sigma will be an n by n matrix. And one way to see that is if you look at the definition
-8:05
-this is an n by 1 vector and this here I transpose is 1 by N so the product of these two things is going to be an N by N matrix.
-8:19
-1xN transfers, 1xN, so there's an NxN matrix and when we add up all of these you still have an NxN matrix.
+Okay, that was probably much more linear algebra than you needed to know. In case none of that made sense, don't worry about it. All you need to know is that this system command you should implement in Octave. And if you're implementing this in a different language than Octave or MATLAB, what you should do is find the numerical linear algebra library that can compute the SVD or singular value decomposition, and there are many such libraries for probably all of the major programming languages. People can use that to compute the matrices u, s, and d of the covariance matrix sigma. So just to fill in some more details, this covariance matrix sigma will be an n by n matrix. And one way to see that is if you look at the definition this is an n by 1 vector and this here I transpose is 1 by N so the product of these two things is going to be an N by N matrix. 1xN transfers, 1xN, so there's an NxN matrix and when we add up all of these you still have an NxN matrix.
 8:27
 And what the SVD outputs three matrices, u, s, and v. The thing you really need out of the SVD is the u matrix.
 8:36
-The u matrix will also be a NxN matrix.
-8:41
-And if we look at the columns of the U matrix it turns out that the columns
-8:48
-of the U matrix will be exactly those vectors, u1, u2 and so on.
+The u matrix will also be a NxN matrix. And if we look at the columns of the U matrix it turns out that the columns of the U matrix will be exactly those vectors, u1, u2 and so on.
 8:57
-So u, will be matrix.
-9:00
-And if we want to reduce the data from n dimensions down to k dimensions, then what we need to do is take the first k vectors.
+So u, will be matrix. And if we want to reduce the data from n dimensions down to k dimensions, then what we need to do is take the first k vectors.
 9:09
-that gives us u1 up to uK which gives us the K direction onto which we want to project the data. the rest of the procedure from this SVD numerical linear algebra routine we get this matrix u. We'll call these columns u1-uN.
-9:30
-So, just to wrap up the description of the rest of the procedure, from the SVD numerical linear algebra routine we get these matrices u, s, and d. we're going to use the first K columns of this matrix to get u1-uK.
+that will gives us u1 up to uK which gives us the K direction onto which we want to project the data.
+
+9:20
+So, the rest of the procedure from this SVD numerical linear algebra routine we get this matrix u. We'll call these columns u1-uN. So, just to wrap up the description of the rest of the procedure, from the SVD numerical linear algebra routine we get these matrices u, s, and d. we're going to use the first K columns of this matrix to get u1-uK.
 9:48
-Now the other thing we need to is take my original data set, X which is an RN And find a lower dimensional representation Z, which is a R K for this data. So the way we're going to do that is take the first K Columns of the U matrix.
-10:08
-Construct this matrix.
-10:11
-Stack up U1, U2 and
-10:14
-so on up to U K in columns. It's really basically taking, you know, this part of the matrix, the first K columns of this matrix.
+Now the other thing we need to is take my original data set, X which is an RN And find a lower dimensional representation Z, which is a R K for this data. So the way we're going to do that is take the first K Columns of the U matrix. Construct this matrix. Stack up U1, U2 and so on up to U K in columns. It's really basically taking, you know, this part of the matrix, the first K columns of this matrix.
 10:23
 And so this is going to be an N by K matrix. I'm going to give this matrix a name. I'm going to call this matrix U, subscript "reduce," sort of a reduced version of the U matrix maybe. I'm going to use it to reduce the dimension of my data.
 10:43
 And the way I'm going to compute Z is going to let Z be equal to this U reduce matrix transpose times X. Or alternatively, you know, to write down what this transpose means. When I take this transpose of this U matrix, what I'm going to end up with is these vectors now in rows. I have U1 transpose down to UK transpose.
 11:07
-Then take that times X, and that's how I get my vector Z. Just to make sure that these dimensions make sense,
-11:15
-this matrix here is going to be k by n and x here is going to be n by 1 and so the product here will be k by 1. And so z is k dimensional, is a k dimensional vector, which is exactly what we wanted. And of course these x's here right, can be Examples in our training set can be examples in our cross validation set, can be examples in our test set, and for example if you know, I wanted to take training example i, I can write this as xi
-11:47
-XI and that's what will give me ZI over there. So, to summarize, here's the PCA algorithm on one slide.
-11:56
-After mean normalization, to ensure that every feature is zero mean and optional feature scaling whichYou really should do feature scaling if your features take on very different ranges of values. After this pre-processing we compute the carrier matrix Sigma like so by the way if your data is given as a matrix like hits if you have your data Given in rows like this. If you have a matrix X which is your time trading sets written in rows where x1 transpose down to x1 transpose,
-12:31
-this covariance matrix sigma actually has a nice vectorizing implementation.
+Then take that times X, and that's how I get my vector Z. Just to make sure that these dimensions make sense, this matrix here is going to be k by n and x here is going to be n by 1 and so the product here will be k by 1. And so z is k dimensional, is a k dimensional vector, which is exactly what we wanted. And of course these x's here right, can be Examples in our training set can be examples in our cross validation set, can be examples in our test set, and for example if you know, I wanted to take training example i, I can write this as xi XI and that's what will give me ZI over there.
+
+11:50
+So, to summarize, here's the PCA algorithm on one slide. After mean normalization, to ensure that every feature is zero mean and optional feature scaling which You really should do feature scaling if your features take on very different ranges of values. After this pre-processing we compute the carrier matrix Sigma like so by the way if your data is given as a matrix like hits if you have your data Given in rows like this. If you have a matrix X which is your time trading sets written in rows where x1 transpose down to x1 transpose, this covariance matrix sigma actually has a nice vectorizing implementation.
 12:37
 You can implement in octave, you can even run sigma equals 1 over m, times x, which is this matrix up here, transpose times x and this simple expression, that's the vectorize implementation of how to compute the matrix sigma.
 12:58
-I'm not going to prove that today. This is the correct vectorization whether you want, you can either numerically test this on yourself by trying out an octave and making sure that both this and this implementations give the same answers or you Can try to prove it yourself mathematically.
-13:11
-Either way but this is the correct vectorizing implementation, without compusingnext
+I'm not going to prove that. This is the correct vectorization whether you want, you can either numerically test this on yourself by trying out an octave and making sure that both this and this implementations give the same answers or you Can try to prove it yourself mathematically. Either way but this is the correct vectorizing implementation, without compute sigma. next
 13:16
-we can apply the SVD routine to get u, s, and d. And then we grab the first k columns of the u matrix you reduce and finally this defines how we go from a feature vector x to this reduce dimension representation z. And similar to k Means if you're apply PCA, they way you'd apply this is with vectors X and RN. So, this is not done with X-0 1. So that was the PCA algorithm.
-13:50
-One thing I didn't do is give a mathematical proof that this There it actually give the projection of the data onto the K dimensional subspace onto the K dimensional surface that actually
-14:02
-minimizes the square projection error Proof of that is beyond the scope of this course. Fortunately the PCA algorithm can be implemented in not too many lines of code. and if you implement this in octave or algorithm, you actually get a very effective dimensionality reduction algorithm.
-14:22
-So, that was the PCA algorithm.
-14:25
-One thing I didn't do was give a mathematical proof that the U1 and U2 and so on and the Z and so on you get out of this procedure is really the choices that would minimize these squared projection error. Right, remember we said What PCA tries to do is try to find a surface or line onto which to project the data so as to minimize to square projection error. So I didn't prove that this that, and the mathematical proof of that is beyond the scope of this course. But fortunately the PCA algorithm can be implemented in not too many lines of octave code. And if you implement this, this is actually what will work, or this will work well, and if you implement this algorithm, you get a very effective dimensionality reduction algorithm. That does do the right thing of minimizing this square projection error.
+next we can apply the SVD routine to get u, s, and v. And then we grab the first k columns of the u matrix you reduce and finally this defines how we go from a feature vector x to this reduce dimension representation z. And similar to k Means if you're apply PCA, they way you'd apply this is with vectors X and Rn. So, this is not done with X-0 1.
+13:46
+So that was the PCA algorithm. One thing I didn't do is give a mathematical proof that this There it actually give the projection of the data onto the K dimensional subspace onto the K dimensional surface that actually minimizes the square projection error Proof of that is beyond the scope of this course. Fortunately the PCA algorithm can be implemented in not too many lines of Octave code. and if you implement this in octave or algorithm, you actually get a very effective dimensionality reduction algorithm.
+
+(QUIZ)
+
+14:21
+So, that was the PCA algorithm. One thing I didn't do was give a mathematical proof that the U1 and U2 and so on and the Z and so on you get out of this procedure is really the choices that would minimize these squared projection error. Right, remember we said What PCA tries to do is try to find a surface or line onto which to project the data so as to minimize to square projection error. So I didn't prove that this that, and the mathematical proof of that is beyond the scope of this course. But fortunately the PCA algorithm can be implemented in not too many lines of octave code. And if you implement this, this is actually what will work, or this will work well, and if you implement this algorithm, you get a very effective dimensionality reduction algorithm. That does do the right thing of minimizing this square projection error.
