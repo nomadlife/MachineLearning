@@ -53,3 +53,4 @@ Because what I do see, is sometimes people start off with a project plan that in
 So, that's it for PCA. Despite these last sets of comments, PCA is an incredibly useful algorithm, when you use it for the appropriate applications and I've actually used PCA pretty often and for me, I use it mostly to speed up the running time of my learning algorithms. But I think, just as common an application of PCA, is to use it to compress data, to reduce the memory or disk space requirements, or to use it to visualize data.
 12:34
 And PCA is one of the most commonly used and one of the most powerful unsupervised learning algorithms. And with what you've learned in these videos, I think hopefully you'll be able to implement PCA and use them through all of these purposes as well.
+
