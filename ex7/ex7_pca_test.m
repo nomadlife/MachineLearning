@@ -66,3 +66,40 @@ fprintf('\n(you should expect to see -0.707107 -0.707107)\n');
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
+
+
+%% =================== Part 3: Dimension Reduction ===================
+%  You should now implement the projection step to map the data onto the
+%  first k eigenvectors. The code will then plot the data in this reduced
+%  dimensional space.  This will show you what the data looks like when
+%  using only the corresponding eigenvectors to reconstruct it.
+%
+%  You should complete the code in projectData.m
+%
+fprintf('\nDimension reduction on example dataset.\n\n');
+
+%  Plot the normalized dataset (returned from pca)
+plot(X_norm(:, 1), X_norm(:, 2), 'bo');
+axis([-4 3 -4 3]); axis square
+
+%  Project the data onto K = 1 dimension
+K = 1;
+Z = projectData(X_norm, U, K);
+fprintf('Projection of the first example: %f\n', Z(1));
+fprintf('\n(this value should be about 1.481274)\n\n');
+
+X_rec  = recoverData(Z, U, K);
+fprintf('Approximation of the first example: %f %f\n', X_rec(1, 1), X_rec(1, 2));
+fprintf('\n(this value should be about  -1.047419 -1.047419)\n\n');
+
+%  Draw lines connecting the projected points to the original points
+hold on;
+plot(X_rec(:, 1), X_rec(:, 2), 'ro');
+for i = 1:size(X_norm, 1)
+    drawLine(X_norm(i,:), X_rec(i,:), '--k', 'LineWidth', 1);
+end
+hold off
+
+fprintf('Program paused. Press enter to continue.\n');
+pause;
