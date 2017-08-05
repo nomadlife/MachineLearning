@@ -1,6 +1,8 @@
-Octave 사용법(version 4.2.1)
+Octave for windows(version 4.2.1)
 
-환경설정(windwos): octaverc
+install : homepage
+
+configuration(windwos): octaverc
 (C:\Octave\Octave-4.2.1\share\octave\4.2.1\m\startup)
 설정내용
 echo off
@@ -12,6 +14,14 @@ edit home .
 EDITOR('"C:\Program Files\Vim\vim80\vim.exe"')
 more off
 
+
+Octave for linux, ubuntu(version 4.0.3)
+
+install :
+sudo apt-add-repository ppa:octave/stable
+sudo apt-get update
+sudo apt-get install octave
+
 환경설정(linux,ubuntu16.04): /home/.octaverc(새파일작성)
 echo off
 PS1('>> ')
@@ -22,6 +32,9 @@ edit home .
 #EDITOR('"vim > /dev/tty 2>&1 < /dev/tty %s"')
 EDITOR('vi')
 more off
+
+
+Octave for Mac
 
 환경설정(OS X) : location(home/.octaverc)
 echo off
