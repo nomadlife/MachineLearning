@@ -8,7 +8,7 @@ configuration(windwos): octaverc
 echo off
 PS1('>> ')
 graphics_toolkit('fltk')
-cd 'C:\Users\joonw\Documents\Machine Learning'
+cd 'C:\Users\joonw\Documents\MachineLearning'
 edit mode sync
 edit home .
 EDITOR('"C:\Program Files\Vim\vim80\vim.exe"')
@@ -25,8 +25,8 @@ sudo apt-get install octave
 환경설정(linux,ubuntu16.04): /home/.octaverc(새파일작성)
 echo off
 PS1('>> ')
-graphics_toolkit('fltk')
-cd '/home/jw/Documents/Machine Learning'
+#graphics_toolkit('fltk')
+cd '/home/jw/Documents/MachineLearning'
 edit mode sync
 edit home .
 #EDITOR('"vim > /dev/tty 2>&1 < /dev/tty %s"')
