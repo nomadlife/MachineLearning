@@ -3,6 +3,7 @@ Collaborating Filtering(Lecture 16, slide 8)
 0:01
 In this video we'll talk about an approach to building a recommender system that's called collaborative filtering. 
 -recommand system build 에관해 얘기할것임.
+
 0:07
 The algorithm that we're talking about has a very interesting property that it does what is called feature learning and by that I mean that this will be an algorithm that can start to learn for itself what features to use. 
 -feature learning 이라고도 함.
@@ -10,6 +11,7 @@ The algorithm that we're talking about has a very interesting property that it d
 0:21 (slide 9)
 Here was the data set that we had and we had assumed that for each movie, someone had come and told us how romantic that movie was and how much action there was in that movie. 
 -각 영화에 대한 장르별 선호도 데이타셋.
+
 0:31
 But as you can imagine it can be very difficult and time consuming and expensive to actually try to get someone to, you know, watch each movie and tell you how romantic each movie and how action packed is each movie, and often you'll want even more features than just these two. So where do you get these features from? 
 -모든 데이타를 취하기는 어렵다.
@@ -92,6 +94,7 @@ So, just to summarize what this term does is it tries to choose features X(i) so
 6:03
 So that's the squared error term. As usual, we can also add this sort of regularization term to prevent the features from becoming too big. 
 -이때까지 설명은 제곱오차항목이었고, 다음은 refularized term 설명.
+
 6:13
 So this is how we would learn the features for one specific movie but what we want to do is learn all the features for all the movies and so what I'm going to do is add this extra summation here so I'm going to sum over all N_m movies, N subscript m movies, and minimize this objective on top that sums of all movies. And if you do that, you end up with the following optimization problem. 
 6:40
