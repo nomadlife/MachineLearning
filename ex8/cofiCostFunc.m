@@ -41,8 +41,12 @@ Theta_grad = zeros(size(Theta));
 %
 
 
+%Cost function
+J=sum(sumsq((X*Theta'-Y)(R==1)))/2;
 
-J=sum(sumsq((X*Theta'-Y)(R==1)))/2
+%Gradient (without regularization)
+X_grad = ((X*Theta'-Y).*R)*Theta;
+Theta_grad = ((X*Theta'-Y).*R)'*X;
 
 
 
